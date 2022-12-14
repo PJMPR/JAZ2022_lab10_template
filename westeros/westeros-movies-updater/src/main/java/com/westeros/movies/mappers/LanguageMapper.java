@@ -1,19 +1,19 @@
 package com.westeros.movies.mappers;
 
-import com.westeros.data.model.Language;
+import com.westeros.data.model.SpokenLanguage;
 import com.westeros.moviesclient.contract.dictionaries.LanguageSummaryDto;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LanguageMapper implements IMapEntities<LanguageSummaryDto, Language>{
+public class LanguageMapper implements IMapEntities<LanguageSummaryDto, SpokenLanguage>{
     @Override
-    public Language map(LanguageSummaryDto languageSummaryDto) {
-        return map(languageSummaryDto, new Language());
+    public SpokenLanguage map(LanguageSummaryDto languageSummaryDto) {
+        return map(languageSummaryDto, new SpokenLanguage());
     }
 
     @Override
-    public Language map(LanguageSummaryDto languageSummaryDto, Language language) {
-        language.setName(languageSummaryDto.getName());
-        return language;
+    public SpokenLanguage map(LanguageSummaryDto languageSummaryDto, SpokenLanguage spokenLanguage) {
+        spokenLanguage.setName(languageSummaryDto.getName());
+        return spokenLanguage;
     }
 }

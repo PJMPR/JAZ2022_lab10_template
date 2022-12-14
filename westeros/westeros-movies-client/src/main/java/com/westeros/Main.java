@@ -14,7 +14,6 @@ public class Main {
         IMoviesClient moviesClient = new MoviesClient(settings);
         var dictClient = new MoviesDictionariesClient(settings);
         var tst = dictClient.getLanguages();
-        tst.stream().forEach(x->System.out.println(x.getEnglishName()));
         var countries = dictClient.getCountries();
         var genres = dictClient.getGenres();
         CheckItOut(moviesClient);

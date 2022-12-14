@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Language implements IHaveName {
+public class SpokenLanguage implements IHaveName {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,8 +48,8 @@ public class Language implements IHaveName {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Language language = (Language) o;
-        return id == language.id&& Objects.equals(name, language.name) && Objects.equals(movies, language.movies);
+        SpokenLanguage spokenLanguage = (SpokenLanguage) o;
+        return id == spokenLanguage.id&& Objects.equals(name, spokenLanguage.name) && Objects.equals(movies, spokenLanguage.movies);
     }
 
     @Override

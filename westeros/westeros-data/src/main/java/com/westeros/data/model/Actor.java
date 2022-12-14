@@ -24,7 +24,7 @@ public class Actor {
     private double popularity;
 
     @OneToMany(mappedBy = "actor")
-    private List<Character> characters = new ArrayList<>();
+    private List<CharacterRole> characterRoles = new ArrayList<>();
 
     public long getId() {
 
@@ -99,12 +99,12 @@ public class Actor {
         this.popularity = popularity;
     }
 
-    public List<Character> getCharacters() {
-        return characters;
+    public List<CharacterRole> getCharacters() {
+        return characterRoles;
     }
 
-    public void setCharacters(List<Character> character) {
-        this.characters = character;
+    public void setCharacters(List<CharacterRole> characterRole) {
+        this.characterRoles = characterRole;
     }
 
     @Override
@@ -112,11 +112,11 @@ public class Actor {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Actor actor = (Actor) o;
-        return id == actor.id && sourceId == actor.sourceId && Double.compare(actor.popularity, popularity) == 0 && Objects.equals(name, actor.name) && Objects.equals(profilePath, actor.profilePath) && Objects.equals(alsoKnownAs, actor.alsoKnownAs) && Objects.equals(biography, actor.biography) && Objects.equals(birthday, actor.birthday) && Objects.equals(deathday, actor.deathday) && Objects.equals(characters, actor.characters);
+        return id == actor.id && sourceId == actor.sourceId && Double.compare(actor.popularity, popularity) == 0 && Objects.equals(name, actor.name) && Objects.equals(profilePath, actor.profilePath) && Objects.equals(alsoKnownAs, actor.alsoKnownAs) && Objects.equals(biography, actor.biography) && Objects.equals(birthday, actor.birthday) && Objects.equals(deathday, actor.deathday) && Objects.equals(characterRoles, actor.characterRoles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, sourceId, name, profilePath, alsoKnownAs, biography, birthday, deathday, popularity, characters);
+        return Objects.hash(id, sourceId, name, profilePath, alsoKnownAs, biography, birthday, deathday, popularity, characterRoles);
     }
 }

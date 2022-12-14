@@ -1,7 +1,7 @@
 package com.westeros.movies.mappers;
 
 import com.westeros.data.model.*;
-import com.westeros.data.model.Character;
+import com.westeros.data.model.CharacterRole;
 import com.westeros.moviesclient.contract.ActorDto;
 import com.westeros.moviesclient.contract.ActorSummaryDto;
 import com.westeros.moviesclient.contract.CompanySummaryDto;
@@ -15,14 +15,14 @@ import org.springframework.stereotype.Component;
 public class EntityMapper implements ICatalogMappers{
 
     private final IMapEntities<ActorDto, Actor> forActor;
-    private final IMapEntities<ActorSummaryDto, Character> forCharacter;
+    private final IMapEntities<ActorSummaryDto, CharacterRole> forCharacter;
     private final IMapEntities<CompanySummaryDto, Company> forCompany;
     private final IMapEntities<CountryDto, Country> forCountry;
     private final IMapEntities<GenreSummaryDto, Genre> forGenre;
-    private final IMapEntities<LanguageSummaryDto, Language> forLanguage;
+    private final IMapEntities<LanguageSummaryDto, SpokenLanguage> forLanguage;
     private final IMapEntities<MovieDto, Movie> forMovie;
 
-    public EntityMapper(IMapEntities<ActorDto, Actor> forActor, IMapEntities<ActorSummaryDto, Character> forCharacter, IMapEntities<CompanySummaryDto, Company> forCompany, IMapEntities<CountryDto, Country> forCountry, IMapEntities<GenreSummaryDto, Genre> forGenre, IMapEntities<LanguageSummaryDto, Language> forLanguage, IMapEntities<MovieDto, Movie> forMovie) {
+    public EntityMapper(IMapEntities<ActorDto, Actor> forActor, IMapEntities<ActorSummaryDto, CharacterRole> forCharacter, IMapEntities<CompanySummaryDto, Company> forCompany, IMapEntities<CountryDto, Country> forCountry, IMapEntities<GenreSummaryDto, Genre> forGenre, IMapEntities<LanguageSummaryDto, SpokenLanguage> forLanguage, IMapEntities<MovieDto, Movie> forMovie) {
         this.forActor = forActor;
         this.forCharacter = forCharacter;
         this.forCompany = forCompany;
@@ -39,7 +39,7 @@ public class EntityMapper implements ICatalogMappers{
     }
 
     @Override
-    public IMapEntities<ActorSummaryDto, Character> forCharacter() {
+    public IMapEntities<ActorSummaryDto, CharacterRole> forCharacter() {
         return forCharacter;
     }
 
@@ -59,7 +59,7 @@ public class EntityMapper implements ICatalogMappers{
     }
 
     @Override
-    public IMapEntities<LanguageSummaryDto, Language> forLanguage() {
+    public IMapEntities<LanguageSummaryDto, SpokenLanguage> forLanguage() {
         return forLanguage;
     }
 

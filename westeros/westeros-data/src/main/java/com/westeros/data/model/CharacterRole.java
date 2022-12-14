@@ -3,7 +3,7 @@ package com.westeros.data.model;
 import jakarta.persistence.*;
 
 @Entity
-public class Character {
+public class CharacterRole {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

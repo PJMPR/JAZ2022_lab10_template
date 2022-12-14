@@ -37,10 +37,10 @@ public class Movie {
     private List<Genre> genres = new ArrayList<>();
 
     @ManyToMany(mappedBy = "movies", cascade = CascadeType.ALL)
-    private List<Language> spokenLanguages = new ArrayList<>();
+    private List<SpokenLanguage> spokenSpokenLanguages = new ArrayList<>();
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
-    private List<Character> characters = new ArrayList<>();
+    private List<CharacterRole> characterRoles = new ArrayList<>();
 
     public long getSourceId() {
         return sourceId;
@@ -186,20 +186,20 @@ public class Movie {
         this.genres = genres;
     }
 
-    public List<Language> getSpokenLanguages() {
-        return spokenLanguages;
+    public List<SpokenLanguage> getSpokenLanguages() {
+        return spokenSpokenLanguages;
     }
 
-    public void setSpokenLanguages(List<Language> spokenLanguages) {
-        this.spokenLanguages = spokenLanguages;
+    public void setSpokenLanguages(List<SpokenLanguage> spokenSpokenLanguages) {
+        this.spokenSpokenLanguages = spokenSpokenLanguages;
     }
 
-    public List<Character> getCharacters() {
-        return characters;
+    public List<CharacterRole> getCharacters() {
+        return characterRoles;
     }
 
-    public void setCharacters(List<Character> character) {
-        this.characters = character;
+    public void setCharacters(List<CharacterRole> characterRole) {
+        this.characterRoles = characterRole;
     }
 
     @Override
@@ -207,11 +207,11 @@ public class Movie {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Movie movie = (Movie) o;
-        return sourceId == movie.sourceId && adult == movie.adult && budget == movie.budget && Double.compare(movie.popularity, popularity) == 0 && runtime == movie.runtime && voteCount == movie.voteCount && Double.compare(movie.voteAverage, voteAverage) == 0 && Objects.equals(id, movie.id) && Objects.equals(backdropPath, movie.backdropPath) && Objects.equals(homepage, movie.homepage) && Objects.equals(originalLanguage, movie.originalLanguage) && Objects.equals(originalTitle, movie.originalTitle) && Objects.equals(overview, movie.overview) && Objects.equals(posterPath, movie.posterPath) && Objects.equals(releaseDate, movie.releaseDate) && Objects.equals(productionCompanies, movie.productionCompanies) && Objects.equals(productionCountries, movie.productionCountries) && Objects.equals(genres, movie.genres) && Objects.equals(spokenLanguages, movie.spokenLanguages) && Objects.equals(characters, movie.characters);
+        return sourceId == movie.sourceId && adult == movie.adult && budget == movie.budget && Double.compare(movie.popularity, popularity) == 0 && runtime == movie.runtime && voteCount == movie.voteCount && Double.compare(movie.voteAverage, voteAverage) == 0 && Objects.equals(id, movie.id) && Objects.equals(backdropPath, movie.backdropPath) && Objects.equals(homepage, movie.homepage) && Objects.equals(originalLanguage, movie.originalLanguage) && Objects.equals(originalTitle, movie.originalTitle) && Objects.equals(overview, movie.overview) && Objects.equals(posterPath, movie.posterPath) && Objects.equals(releaseDate, movie.releaseDate) && Objects.equals(productionCompanies, movie.productionCompanies) && Objects.equals(productionCountries, movie.productionCountries) && Objects.equals(genres, movie.genres) && Objects.equals(spokenSpokenLanguages, movie.spokenSpokenLanguages) && Objects.equals(characterRoles, movie.characterRoles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, sourceId, adult, backdropPath, budget, homepage, originalLanguage, originalTitle, overview, popularity, posterPath, releaseDate, runtime, voteCount, voteAverage, productionCompanies, productionCountries, genres, spokenLanguages, characters);
+        return Objects.hash(id, sourceId, adult, backdropPath, budget, homepage, originalLanguage, originalTitle, overview, popularity, posterPath, releaseDate, runtime, voteCount, voteAverage, productionCompanies, productionCountries, genres, spokenSpokenLanguages, characterRoles);
     }
 }
