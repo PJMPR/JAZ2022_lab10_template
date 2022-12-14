@@ -1,4 +1,4 @@
-package com.example.westeroswebapi;
+package com.westeros.webapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
