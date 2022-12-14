@@ -14,7 +14,6 @@ public class LanguageMapper implements IMapEntities<LanguageSummaryDto, Language
     @Override
     public Language map(LanguageSummaryDto languageSummaryDto, Language language) {
         language.setName(languageSummaryDto.getName());
-        language.setEnglishName(languageSummaryDto.getEnglishName());
         return language;
     }
 }
