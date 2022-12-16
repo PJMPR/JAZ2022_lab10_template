@@ -45,7 +45,6 @@ public class MoviesUpdater implements IUpdateMovies{
     }
 
     private void updateDictionaries(){
-        var tst = new String[2];
 
         var languagesDto = dictionariesClient.getLanguages();
         var countriesDto = dictionariesClient.getCountries();
@@ -54,11 +53,6 @@ public class MoviesUpdater implements IUpdateMovies{
         var languages = data.getLanguages().findAll();
         var countries = data.getCountries().findAll();
         var genres = data.getGenres().findAll();
-
-        for (var x :
-                data.getCompanies().findAll()) {
-
-        }
 
         SaveNewDictionaries(languagesDto, languages, entityMapper.forLanguage(), entity->data.getLanguages().save(entity));
         SaveNewDictionaries(countriesDto, countries, entityMapper.forCountry(), entity->data.getCountries().save(entity));
