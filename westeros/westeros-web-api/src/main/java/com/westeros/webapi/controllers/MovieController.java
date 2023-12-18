@@ -26,9 +26,4 @@ public class MovieController {
         return ResponseEntity.ok(id);
     }
 
-    @GetMapping("languages")
-    public ResponseEntity<List<LanguageDto>> getLanguages(){
-        return ResponseEntity.ok(movieService.getLanguages());
-    }
-
 }

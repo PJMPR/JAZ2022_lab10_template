@@ -29,15 +29,4 @@ public class MovieService implements IMovieService{
         return movieEntity.getId();
     }
 
-    @Override
-    public List<LanguageDto> getLanguages() {
-        return db.getLanguages().findAll().stream().map(this::mapFromEntity).toList();
-    }
-
-    LanguageDto mapFromEntity(SpokenLanguage language) {
-        var result = new LanguageDto();
-        result.setId(language.getId());
-        result.setName(language.getName());
-        return result;
-    }
 }
