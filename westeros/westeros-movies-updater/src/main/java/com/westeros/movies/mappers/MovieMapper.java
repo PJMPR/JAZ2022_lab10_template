@@ -19,13 +19,16 @@ public class MovieMapper implements IMapEntities<MovieDto, Movie>{
         movie.setHomepage(movieDto.getHomepage());
         movie.setOriginalLanguage(movieDto.getOriginalLanguage());
         movie.setOriginalTitle(movieDto.getOriginalTitle());
+        if(movieDto.getOverview().length()>200)
+            movieDto.setOverview(movieDto.getOverview().substring(0,199));
         movie.setOverview(movieDto.getOverview());
         movie.setPopularity(movieDto.getPopularity());
         movie.setPosterPath(movieDto.getPosterPath());
         movie.setReleaseDate(movieDto.getReleaseDate());
         movie.setRuntime(movieDto.getRuntime());
         movie.setVoteCount(movieDto.getVoteCount());
-        movie.setVoteAverage(movie.getVoteAverage());
+        movie.setVoteAverage(movieDto.getVoteAverage());
+        movie.setSourceId(movieDto.getId());
         return movie;
     }
 }

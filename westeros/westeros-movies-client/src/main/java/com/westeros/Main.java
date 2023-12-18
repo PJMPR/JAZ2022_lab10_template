@@ -10,13 +10,13 @@ public class Main {
 
     public static void main(String[] args){
 
-        IMoviesClientSettings settings = new MoviesClientSettings();
-        IMoviesClient moviesClient = new MoviesClient(settings);
-        var dictClient = new MoviesDictionariesClient(settings);
-        var tst = dictClient.getLanguages();
-        var countries = dictClient.getCountries();
-        var genres = dictClient.getGenres();
-        CheckItOut(moviesClient);
+//        IMoviesClientSettings settings = new MoviesClientSettings();
+//        IMoviesClient moviesClient = new MoviesClient(invoker, settings);
+//        var dictClient = new MoviesDictionariesClient(settings);
+//        var tst = dictClient.getLanguages();
+//        var countries = dictClient.getCountries();
+//        var genres = dictClient.getGenres();
+//        CheckItOut(moviesClient);
     }
 
     public static void CheckItOut(IMoviesClient moviesClient) {

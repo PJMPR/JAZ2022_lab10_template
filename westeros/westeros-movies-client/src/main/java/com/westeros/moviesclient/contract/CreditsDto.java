@@ -3,14 +3,14 @@ package com.westeros.moviesclient.contract;
 import java.util.List;
 
 public class CreditsDto {
-    private int id;
+    private long id;
     private List<ActorSummaryDto> cast;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -21,5 +21,6 @@ public class CreditsDto {
     public void setCast(List<ActorSummaryDto> cast) {
         this.cast = cast;
     }
+
 }
 

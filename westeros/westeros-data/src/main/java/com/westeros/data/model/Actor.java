@@ -14,7 +14,7 @@ public class Actor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private int sourceId;
+    private long sourceId;
     private String name;
     private String profilePath;
     private String alsoKnownAs;
@@ -35,11 +35,11 @@ public class Actor {
         this.id = id;
     }
 
-    public int getSourceId() {
+    public long getSourceId() {
         return sourceId;
     }
 
-    public void setSourceId(int sourceId) {
+    public void setSourceId(long sourceId) {
         this.sourceId = sourceId;
     }
 

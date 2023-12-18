@@ -4,17 +4,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ActorSummaryDto {
 
-    private int id;
+    private long id;
     private String name;
     private String character;
     @JsonProperty("profile_path")
     private String profilePath;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

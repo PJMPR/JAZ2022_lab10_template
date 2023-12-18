@@ -5,6 +5,7 @@ import com.westeros.moviesclient.contract.dictionaries.GenreSummaryDto;
 import com.westeros.moviesclient.contract.dictionaries.LanguageSummaryDto;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MovieDto extends MovieSummaryDto{
@@ -26,14 +27,14 @@ public class MovieDto extends MovieSummaryDto{
     private String posterPath;
 
     @JsonProperty("production_companies")
-    private List<CompanySummaryDto> productionCompanies;
+    private List<CompanySummaryDto> productionCompanies = new ArrayList<>();
     @JsonProperty("production_countries")
-    private List<CountrySummaryDto> productionCountries;
+    private List<CountrySummaryDto> productionCountries = new ArrayList<>();
     @JsonProperty("release_date")
     private LocalDate releaseDate;
     private int runtime;
     @JsonProperty("spoken_languages")
-    private List<LanguageSummaryDto> spokenLanguages;
+    private List<LanguageSummaryDto> spokenLanguages = new ArrayList<>();
     @JsonProperty("vote_count")
     private int voteCount;
     @JsonProperty("vote_average")

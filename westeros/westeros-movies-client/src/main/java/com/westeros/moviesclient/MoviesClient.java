@@ -1,6 +1,7 @@
 package com.westeros.moviesclient;
 
 import com.westeros.moviesclient.contract.*;
+import com.westeros.tools.safeinvoker.SafeInvoking;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -10,13 +11,15 @@ import java.time.LocalDate;
 @Component
 public class MoviesClient implements IMoviesClient {
 
+    final SafeInvoking invoker;
     RestTemplate restClient;
     String baseUrl;
     String apiKey;
     int version;
     private final IMoviesClientSettings _settings;
 
-    public MoviesClient(IMoviesClientSettings settings) {
+    public MoviesClient(SafeInvoking invoker, IMoviesClientSettings settings) {
+        this.invoker = invoker;
         restClient = new RestTemplate();
         this.baseUrl=settings.getBaseUrl();
         this.apiKey= settings.getApiKey();
@@ -47,7 +50,7 @@ public class MoviesClient implements IMoviesClient {
     }
 
     @Override
-    public MovieDto getMovie(int id) {
+    public MovieDto getMovie(long id) {
         String url = _settings.getUrlBuilder()
                 .pathSegment("movie", id+"")
                 .build()
@@ -57,16 +60,17 @@ public class MoviesClient implements IMoviesClient {
     }
 
     @Override
-    public CreditsDto getCredits(int id) {
+    public CreditsDto getCredits(long id) {
         var url = _settings.getUrlBuilder()
                 .pathSegment("movie", ""+id, "credits")
                 .build().toUriString();
-
-        return restClient.getForObject(url, CreditsDto.class);
+        var result = restClient.getForEntity(url, CreditsDto.class);
+        if(result.getStatusCode().isError()) return null;
+        return result.getBody();
     }
 
     @Override
-    public ActorDto getActorDetails(int id) {
+    public ActorDto getActorDetails(long id) {
         var url = _settings.getUrlBuilder()
                 .pathSegment("person", id+"")
                 .build()

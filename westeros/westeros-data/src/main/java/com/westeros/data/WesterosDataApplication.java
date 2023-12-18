@@ -24,12 +24,12 @@ public class WesterosDataApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        var company = new Company();
-        var movie = new Movie();
-        dataCatalog.getCompanies().save(company);
-        dataCatalog.getMovies().save(movie);
-        company.getMovies().add(movie);
-        movie.getProductionCompanies().add(company);
-        dataCatalog.getCompanies().save(company);
+//        var company = new Company();
+//        var movie = new Movie();
+//        dataCatalog.getCompanies().save(company);
+//        dataCatalog.getMovies().save(movie);
+//        company.getMovies().add(movie);
+//        movie.getProductionCompanies().add(company);
+//        dataCatalog.getCompanies().save(company);
     }
 }
