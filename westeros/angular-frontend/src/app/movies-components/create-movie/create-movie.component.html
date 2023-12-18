@@ -20,7 +20,7 @@
 
                     <div class="form-group">
                         <label> spokenLanguage</label>
-                        <select type="text" class="form-control" id="spokenLanguage" [(ngModel)]="movie.languageId"
+                        <select type="text" class="form-control" id="Language" [(ngModel)]="movie.languageId"
                             name="spokenLanguage">
                             <option *ngFor="let item of languages" [value]="item.id">{{ item.name }}</option>
                         </select>

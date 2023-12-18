@@ -18,7 +18,11 @@ export class CreateMovieComponent implements OnInit {
 
   ngOnInit(): void {
     this.movieService.getlanguages()
-    .subscribe(data=>this.languages=data);
+    .subscribe(data=>{
+      this.languages=data;
+      console.log("languages donwloaded.")
+    }
+      );
   }
 
   saveMovie(){
