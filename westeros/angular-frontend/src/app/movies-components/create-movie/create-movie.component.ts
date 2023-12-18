@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../movie.service';
 import { Router } from '@angular/router';
 import {Movie} from "../../contracts/movie";
+import { Language } from 'src/app/contracts/language';
 
 @Component({
   selector: 'app-create-movie',
@@ -11,10 +12,13 @@ import {Movie} from "../../contracts/movie";
 export class CreateMovieComponent implements OnInit {
 
   movie: Movie = new Movie();
+  languages : Language[] = [];
   constructor(private movieService: MovieService,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.movieService.getlanguages()
+    .subscribe(data=>this.languages=data);
   }
 
   saveMovie(){

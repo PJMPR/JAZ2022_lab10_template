@@ -1,10 +1,14 @@
 package com.westeros.webapi.services;
 
 import com.westeros.data.model.Movie;
+import com.westeros.data.model.SpokenLanguage;
 import com.westeros.data.repositories.ICatalogData;
+import com.westeros.webapi.contract.LanguageDto;
 import com.westeros.webapi.contract.MovieDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -23,5 +27,17 @@ public class MovieService implements IMovieService{
         movieEntity.setOriginalLanguage(dto.getLanguage());
         db.getMovies().save(movieEntity);
         return movieEntity.getId();
+    }
+
+    @Override
+    public List<LanguageDto> getLanguages() {
+        return db.getLanguages().findAll().stream().map(this::mapFromEntity).toList();
+    }
+
+    LanguageDto mapFromEntity(SpokenLanguage language) {
+        var result = new LanguageDto();
+        result.setId(language.getId());
+        result.setName(language.getName());
+        return result;
     }
 }
