@@ -28,11 +28,6 @@ public class MovieService implements IMovieService{
         return movieEntity.getId();
     }
 
-    @Override
-    public List<MovieSummaryDto> getAllMovies() {
-        return db.getMovies().findAll().stream().map(movie-> getMovieSummaryDto(movie)).toList();
-    }
-
     private MovieSummaryDto getMovieSummaryDto(Movie movie) {
         var dto = new MovieSummaryDto();
         dto.setId(movie.getId());

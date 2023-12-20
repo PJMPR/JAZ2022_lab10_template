@@ -26,10 +26,4 @@ public class MovieController {
         var id = movieService.saveMovie(movie);
         return ResponseEntity.ok(id);
     }
-
-    @GetMapping
-    public ResponseEntity<List<MovieSummaryDto>> getAllMovies(){
-        return ResponseEntity.ok(movieService.getAllMovies());
-    }
-
 }
