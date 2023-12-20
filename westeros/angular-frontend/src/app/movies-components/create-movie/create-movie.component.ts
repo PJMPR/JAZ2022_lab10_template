@@ -21,8 +21,21 @@ export class CreateMovieComponent implements OnInit {
     .subscribe(data=>{
       this.languages=data;
       console.log("languages donwloaded.")
-    }
-      );
+    },
+      error=>{
+        alert(`
+        Z adresu:
+        Request URL:http://localhost:8080/api/v1/movies/languages
+        
+        Request Method:GET
+        Chcę pobrać listę języków, które są przedstawione w postaci LanguageDto:
+          {
+            id:number;
+            name:string;
+          }
+
+        `)
+      });
   }
 
   saveMovie(){

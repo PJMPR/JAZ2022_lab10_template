@@ -27,5 +27,4 @@ public class MovieController {
         return ResponseEntity.ok(id);
     }
 
-
 }

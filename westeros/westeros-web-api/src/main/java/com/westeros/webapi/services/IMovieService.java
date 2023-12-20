@@ -7,6 +7,5 @@ import com.westeros.webapi.contract.MovieSummaryDto;
 import java.util.List;
 
 public interface IMovieService {
-
     long saveMovie(MovieDto dto);
 }

@@ -21,14 +21,59 @@ export class UpdateMovieComponent implements OnInit {
 
     this.movieService.getMovieById(this.id).subscribe(data => {
       this.movie = data;
-    }, error => console.log(error));
+    },
+    error=>{
+      alert(
+        `
+        Z adresu: 
+            http://localhost:8080/api/v1/movies/${this.id}
+        HttP Method GET
+
+        chcę pobrać dane o filmie w postaci MovieDto:
+        {
+          id: number;
+          title: string;
+          homepage: string;
+          language: string;  
+          adult:boolean;
+          budget:number;
+          overview: string;
+          releaseDate: Date;
+          runtime: number;
+          languageId:number;
+        }
+        `
+    );});
   }
 
   onSubmit(){
     this.movieService.updateMovie(this.id, this.movie).subscribe(data =>{
       this.goToMoviesList();
     }
-    , error => console.log(error));
+    , 
+    error=>{
+      alert(
+        `
+        Z adresu: 
+            http://localhost:8080/api/v1/movies/${this.id}
+        
+            HttP Method PUT
+
+        chcę zaktualizować dane o filmie w postaci MovieDto:
+        {
+          id: number;
+          title: string;
+          homepage: string;
+          language: string;  
+          adult:boolean;
+          budget:number;
+          overview: string;
+          releaseDate: Date;
+          runtime: number;
+          languageId:number;
+        }
+        `
+      );});
   }
 
   goToMoviesList(){

@@ -30,7 +30,6 @@ public class MovieService implements IMovieService{
         return movieEntity.getId();
     }
 
-
     private MovieSummaryDto getMovieDto(Movie movie) {
         var dto = new MovieSummaryDto();
         dto.setId(movie.getId());
