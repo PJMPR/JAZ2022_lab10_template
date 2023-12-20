@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface IMovieService {
     long saveMovie(MovieDto dto);
+
+    List<MovieSummaryDto> getAllMovies();
 }

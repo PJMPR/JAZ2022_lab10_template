@@ -1,9 +1,7 @@
 package com.westeros.webapi.services;
 
 import com.westeros.data.model.Movie;
-import com.westeros.data.model.SpokenLanguage;
 import com.westeros.data.repositories.ICatalogData;
-import com.westeros.webapi.contract.LanguageDto;
 import com.westeros.webapi.contract.MovieDto;
 import com.westeros.webapi.contract.MovieSummaryDto;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +28,12 @@ public class MovieService implements IMovieService{
         return movieEntity.getId();
     }
 
-    private MovieSummaryDto getMovieDto(Movie movie) {
+    @Override
+    public List<MovieSummaryDto> getAllMovies() {
+        return db.getMovies().findAll().stream().map(movie-> getMovieSummaryDto(movie)).toList();
+    }
+
+    private MovieSummaryDto getMovieSummaryDto(Movie movie) {
         var dto = new MovieSummaryDto();
         dto.setId(movie.getId());
         dto.setLanguage(movie.getOriginalLanguage());
