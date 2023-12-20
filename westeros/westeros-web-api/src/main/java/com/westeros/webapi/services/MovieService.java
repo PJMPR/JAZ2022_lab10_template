@@ -5,6 +5,7 @@ import com.westeros.data.model.SpokenLanguage;
 import com.westeros.data.repositories.ICatalogData;
 import com.westeros.webapi.contract.LanguageDto;
 import com.westeros.webapi.contract.MovieDto;
+import com.westeros.webapi.contract.MovieSummaryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,16 @@ public class MovieService implements IMovieService{
         movieEntity.setOriginalLanguage(dto.getLanguage());
         db.getMovies().save(movieEntity);
         return movieEntity.getId();
+    }
+
+
+    private MovieSummaryDto getMovieDto(Movie movie) {
+        var dto = new MovieSummaryDto();
+        dto.setId(movie.getId());
+        dto.setLanguage(movie.getOriginalLanguage());
+        dto.setTitle(movie.getOriginalTitle());
+        dto.setHomepage(movie.getHomepage());
+        return dto;
     }
 
 }

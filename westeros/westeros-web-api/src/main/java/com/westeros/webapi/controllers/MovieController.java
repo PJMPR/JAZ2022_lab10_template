@@ -4,6 +4,7 @@ import com.westeros.data.model.Movie;
 import com.westeros.data.repositories.ICatalogData;
 import com.westeros.webapi.contract.LanguageDto;
 import com.westeros.webapi.contract.MovieDto;
+import com.westeros.webapi.contract.MovieSummaryDto;
 import com.westeros.webapi.services.IMovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -25,5 +26,6 @@ public class MovieController {
         var id = movieService.saveMovie(movie);
         return ResponseEntity.ok(id);
     }
+
 
 }

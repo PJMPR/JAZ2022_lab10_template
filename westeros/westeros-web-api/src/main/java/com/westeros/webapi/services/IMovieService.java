@@ -2,6 +2,7 @@ package com.westeros.webapi.services;
 
 import com.westeros.webapi.contract.LanguageDto;
 import com.westeros.webapi.contract.MovieDto;
+import com.westeros.webapi.contract.MovieSummaryDto;
 
 import java.util.List;
 
